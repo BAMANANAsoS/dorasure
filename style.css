@@ -1,0 +1,310 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@600;900&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  font-family: 'Noto Serif KR', serif, sans-serif;
+  background: #0d0a07 url('https://www.transparenttextures.com/patterns/dark-leather.png');
+  color: #e0d0b0;
+  padding-bottom: 40px;
+}
+
+/* 판타지 헤더 */
+.fantasy-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: linear-gradient(180deg, #1f1610 0%, #0d0906 100%);
+  border-bottom: 2px solid #a88040;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.9);
+  text-align: center;
+  padding: 14px 0;
+}
+
+.fantasy-header h1 {
+  font-size: 1.5rem;
+  color: #f3e5ab;
+  text-shadow: 0 0 10px rgba(212, 175, 55, 0.7), 2px 2px 4px #000;
+  letter-spacing: 2px;
+}
+
+.main-container {
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+/* 확장판 필터 탭 */
+.expansion-tabs {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  padding: 4px 2px 16px 2px;
+  scrollbar-width: none;
+}
+
+.expansion-tabs::-webkit-scrollbar {
+  display: none;
+}
+
+.tab-btn {
+  flex: 0 0 auto;
+  background: linear-gradient(180deg, #2b2015 0%, #17110b 100%);
+  border: 1px solid #735327;
+  color: #b89f7a;
+  padding: 10px 18px;
+  border-radius: 22px;
+  font-size: 0.95rem;
+  font-family: inherit;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 3px 6px rgba(0,0,0,0.6);
+  cursor: pointer;
+}
+
+.tab-btn.active {
+  background: linear-gradient(180deg, #b88432 0%, #634212 100%);
+  color: #fff8e7;
+  border-color: #ffd700;
+  font-weight: bold;
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
+
+/* 큼직해진 캐릭터 그리드 (모바일 2열 / PC 3~4열) */
+.hero-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 모바일에서도 큼직하게 2열로 변경 */
+  gap: 14px;
+  margin-top: 5px;
+}
+
+@media (min-width: 600px) {
+  .hero-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+}
+
+@media (min-width: 900px) {
+  .hero-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+  }
+}
+
+/* 캐릭터 카드 */
+.hero-card {
+  background: #18120b;
+  border: 2px solid #543d22;
+  border-radius: 10px;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 5px 12px rgba(0,0,0,0.8);
+  cursor: pointer;
+  transition: transform 0.15s ease, border-color 0.2s, box-shadow 0.2s;
+}
+
+.hero-card:active {
+  transform: scale(0.96);
+}
+
+@media (min-width: 768px) {
+  .hero-card:hover {
+    border-color: #ffd700;
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
+    transform: translateY(-4px);
+  }
+}
+
+/* 섬네일 프레임 (크기 대폭 확대) */
+.frame-box {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid #4a351d;
+  background: #000;
+}
+
+.frame-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.hero-card:hover .frame-box img {
+  transform: scale(1.05); /* 마우스 호버 시 살짝 확대 효과 */
+}
+
+.hero-name {
+  margin-top: 10px;
+  margin-bottom: 4px;
+  font-size: 1.05rem;
+  font-weight: bold;
+  color: #f3e5ab;
+  text-align: center;
+  text-shadow: 1px 1px 3px #000;
+}
+
+/* 화면 가득 차는 최대화 팝업(모달) */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.92);
+  backdrop-filter: blur(5px);
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+  padding: 8px; /* 모바일에서 이미지가 최대한 커지도록 여백 최소화 */
+}
+
+.modal-overlay.active {
+  display: flex;
+}
+
+.modal-card {
+  background: #140e09;
+  border: 2px solid #b88432;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 1200px; /* PC 화면에서 충분히 커지도록 설정 */
+  box-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 16px;
+  background: #24180f;
+  border-bottom: 1px solid #543d22;
+}
+
+.modal-title {
+  color: #ffd700;
+  font-size: 1.1rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  color: #d4af37;
+  font-size: 2rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0 6px;
+}
+
+/* 화면 크기에 맞춰 가로/세로 16:9 비율 자동 최대화 */
+.aspect-16-9 {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  max-height: 82vh; /* 모바일/PC 세로 높이 오버플로우 방지 */
+  background-color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.aspect-16-9 img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* 이미지 찌그러짐 없이 최고 크기로 장평 맞춤 */
+}
+
+
+
+/* 11번째 확장판 탭 버튼 (절제된 화이트 글로우 효과) */
+.expansion-tabs .tab-btn:nth-child(10) {
+  background: linear-gradient(180deg, #333333 0%, #1a1a1a 100%); /* 차분한 딥 그레이 배경 */
+  border-color: #ffffff;                                         /* 명확한 선명한 흰색 테두리 */
+  color: #ffffff;                                                /* 텍스트 흰색 */
+  font-weight: bold;
+  
+  /* 은은한 흰색 글자 빛 */
+  text-shadow: 0 0 6px rgba(255, 255, 255, 0.8);
+  
+  /* 부드러운 흰색 테두리 후광 */
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.35);
+  
+  /* 과하지 않은 차분한 숨쉬기 애니메이션 */
+  animation: whiteGlow 2.2s infinite alternate ease-in-out;
+}
+
+/* 11번째 탭 선택(클릭) 상태 */
+.expansion-tabs .tab-btn:nth-child(10).active {
+  background: linear-gradient(180deg, #ffffff 0%, #dcdcdc 100%); /* 완전히 밝아지는 흰색 탭 */
+  color: #111111;                                                /* 글자색을 어둡게 변경하여 가독성 확보 */
+  border-color: #ffffff;
+  text-shadow: none;
+  box-shadow: 0 0 14px rgba(255, 255, 255, 0.8);
+}
+
+/* 절제된 화이트 펄스 애니메이션 정의 */
+@keyframes whiteGlow {
+  from {
+    text-shadow: 0 0 4px rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 6px rgba(255, 255, 255, 0.2);
+  }
+  to {
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.9);
+    box-shadow: 0 0 12px rgba(255, 255, 255, 0.5);
+  }
+}
+
+
+/* 10번째 확장판 탭 버튼 (암흑기사 / 딥 퍼플 & 블랙 컨셉) */
+.expansion-tabs .tab-btn:nth-child(9) {
+  background: linear-gradient(180deg, #1c0d2b 0%, #08030d 100%); /* 칠흑 같은 암흑 보랏빛 배경 */
+  border-color: #8a2be2;                                         /* 다크 바이올렛 테두리 */
+  color: #e6ccff;                                                /* 연보랏빛 글자 */
+  font-weight: bold;
+  
+  /* 절제된 은은한 보랏빛 글자 광원 */
+  text-shadow: 0 0 6px rgba(186, 85, 211, 0.7);
+  
+  /* 잔잔하게 퍼지는 딥 퍼플 잔영 */
+  box-shadow: 0 0 8px rgba(138, 43, 226, 0.35);
+  
+  /* 천천히 넘실거리는 다크 펄스 애니메이션 */
+  animation: darkKnightGlow 2.5s infinite alternate ease-in-out;
+}
+
+/* 10번째 탭 선택(클릭) 상태 */
+.expansion-tabs .tab-btn:nth-child(9).active {
+  background: linear-gradient(180deg, #3d1466 0%, #170529 100%); /* 묵직한 어둠의 기사 보라색 */
+  color: #ffffff;
+  border-color: #ba55d3;
+  text-shadow: 0 0 8px rgba(230, 204, 255, 0.9);
+  box-shadow: 0 0 14px rgba(186, 85, 211, 0.7);
+}
+
+/* 다크 펄스 애니메이션 정의 */
+@keyframes darkKnightGlow {
+  from {
+    text-shadow: 0 0 4px rgba(186, 85, 211, 0.5);
+    box-shadow: 0 0 6px rgba(138, 43, 226, 0.2);
+  }
+  to {
+    text-shadow: 0 0 8px rgba(230, 204, 255, 0.8);
+    box-shadow: 0 0 12px rgba(138, 43, 226, 0.5);
+  }
+}

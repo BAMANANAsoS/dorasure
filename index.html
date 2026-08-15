@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>도라스레 캐릭터 도감</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- 헤더 -->
+  <header class="fantasy-header">
+    <h1>도라스레 캐릭터 도감</h1>
+  </header>
+
+  <main class="main-container">
+    <!-- 확장판 선택 탭 -->
+    <nav class="expansion-tabs">
+      <button class="tab-btn active" data-filter="all">전체</button>
+      <button class="tab-btn" data-filter="exp1">기본</button>
+      <button class="tab-btn" data-filter="exp2">확장1</button>
+      <button class="tab-btn" data-filter="exp3">확장2</button>
+      <button class="tab-btn" data-filter="exp4">확장3</button>
+      <button class="tab-btn" data-filter="exp5">언데드</button>
+      <button class="tab-btn" data-filter="exp6">작은대모험</button>
+      <button class="tab-btn" data-filter="exp7">드림나이트</button>
+      <button class="tab-btn" data-filter="exp8">마룡의 수호자</button>
+      <button class="tab-btn" data-filter="exp9">그랜드마스터</button>
+    </nav>
+
+    <!-- 캐릭터 리스트 (큰 썸네일 적용) -->
+    <section class="hero-grid">
+      <article class="hero-card" data-expansion="exp1" onclick="openModal('class/pal.jpg', '팔라딘')">
+        <div class="frame-box">
+          <img src="class_sub/pal.png" alt="캐릭터">
+        </div>
+        <div class="hero-name">팔라딘</div>
+      </article>
+
+      <article class="hero-card" data-expansion="exp1" onclick="openModal('class/hun.jpg', '헌터')">
+        <div class="frame-box">
+          <img src="class_sub/hun.png" alt="캐릭터">
+        </div>
+        <div class="hero-name">헌터</div>
+      </article>
+
+      <article class="hero-card" data-expansion="exp1" onclick="openModal('class/king.jpg', '왕자')">
+        <div class="frame-box">
+          <img src="class_sub/king.png" alt="캐릭터">
+        </div>
+        <div class="hero-name">왕자</div>
+      </article>
+
+      <article class="hero-card" data-expansion="exp1" onclick="openModal('class/nin.jpg', '닌자')">
+        <div class="frame-box">
+          <img src="class_sub/nin.png" alt="캐릭터">
+        </div>
+        <div class="hero-name">닌자</div>
+      </article>
+      
+      <article class="hero-card" data-expansion="exp1" onclick="openModal('class/gl.jpg', '글라디에이터')">
+        <div class="frame-box">
+          <img src="class_sub/gl.png" alt="캐릭터">
+        </div>
+        <div class="hero-name">글라디에이터</div>
+      </article>
+      
+      <article class="hero-card" data-expansion="exp2" onclick="openModal('class/magic.jpg', '마법사')">
+        <div class="frame-box">
+          <img src="class_sub/magic.png" alt="캐릭터">
+        </div>
+        <div class="hero-name">마법사</div>
+      </article>
+      
+      <article class="hero-card" data-expansion="exp2" onclick="openModal('class/music.jpg', '음유시인')">
+        <div class="frame-box">
+          <img src="class_sub/music.png" alt="캐릭터">
+        </div>
+        <div class="hero-name">음유시인</div>
+      </article>
+      
+      
+      <article class="hero-card" data-expansion="exp2" onclick="openModal('class/samu.jpg', '사무라이')">
+        <div class="frame-box">
+          <img src="class_sub/samu.png" alt="캐릭터">
+        </div>
+        <div class="hero-name">사무라이</div>
+      </article>
+      
+      <article class="hero-card" data-expansion="exp2" onclick="openModal('class/cu.jpg', '주술사')">
+        <div class="frame-box">
+          <img src="class_sub/cu.png" alt="캐릭터">
+        </div>
+        <div class="hero-name">주술사</div>
+      </article>
+      
+      <article class="hero-card" data-expansion="exp3" onclick="openModal('class/vam.jpg', '뱀파이어')">
+        <div class="frame-box">
+          <img src="class_sub/vam.png" alt="캐릭터">
+        </div>
+        <div class="hero-name">뱀파이어</div>
+      </article>
+      
+      <article class="hero-card" data-expansion="exp3" onclick="openModal('class/wolf.jpg', '늑대인간')">
+        <div class="frame-box">
+          <img src="class_sub/wolf.png" alt="캐릭터">
+        </div>
+        <div class="hero-name">늑대인간</div>
+      </article>
+      
+      <article class="hero-card" data-expansion="exp3" onclick="openModal('class/saint.jpg', '주교')">
+        <div class="frame-box">
+          <img src="class_sub/saint.png" alt="캐릭터">
+        </div>
+        <div class="hero-name">주교</div>
+      </article>
+      
+      <article class="hero-card" data-expansion="exp3" onclick="openModal('class/bow.jpg', '궁수')">
+        <div class="frame-box">
+          <img src="class_sub/bow.png" alt="캐릭터">
+        </div>
+        <div class="hero-name">궁수</div>
+      </article>
+      
+      <article class="hero-card" data-expansion="exp3" onclick="openModal('class/cro.jpg', '광대')">
+        <div class="frame-box">
+          <img src="class_sub/cro.png" alt="캐릭터">
+        </div>
+        <div class="hero-name">광대</div>
+      </article>
+      
+      <article class="hero-card" data-expansion="exp3" onclick="openModal('class/pro.jpg', '프로페서')">
+        <div class="frame-box">
+          <img src="class_sub/pro.png" alt="캐릭터">
+        </div>
+        <div class="hero-name">프로페서</div>
+      </article>
+      
+      <article class="hero-card" data-expansion="exp3" onclick="openModal('class/meka.jpg', '메카닉')">
+        <div class="frame-box">
+          <img src="class_sub/meka.png" alt="캐릭터">
+        </div>
+        <div class="hero-name">메카닉</div>
+      </article>
+      
+      <article class="hero-card" data-expansion="exp3" onclick="openModal('class/war.jpg', '워머신')">
+        <div class="frame-box">
+          <img src="class_sub/war.png" alt="캐릭터">
+        </div>
+        <div class="hero-name">워머신</div>
+      </article>
+      
+      <article class="hero-card" data-expansion="exp4" onclick="openModal('class/sky.jpg', '스카이호크')">
+        <div class="frame-box">
+          <img src="class_sub/sky.png" alt="캐릭터">
+        </div>
+        <div class="hero-name">스카이호크</div>
+      </article>
+      
+      <article class="hero-card" data-expansion="exp4" onclick="openModal('class/inca.jpg', '연금술사')">
+        <div class="frame-box">
+          <img src="class_sub/inca.png" alt="캐릭터">
+        </div>
+        <div class="hero-name">연금술사</div>
+      </article>
+      
+      <article class="hero-card" data-expansion="exp4" onclick="openModal('class/tra.jpg', '트레저헌터')">
+        <div class="frame-box">
+          <img src="class_sub/tra.png" alt="캐릭터">
+        </div>
+        <div class="hero-name">트레저헌터</div>
+      </article>
+      
+      <article class="hero-card" data-expansion="exp4" onclick="openModal('class/dragon.jpg', '용투사')">
+        <div class="frame-box">
+          <img src="class_sub/dragon.png" alt="캐릭터">
+        </div>
+        <div class="hero-name">용투사</div>
+      </article>
+      
+      <article class="hero-card" data-expansion="exp4" onclick="openModal('class/god.jpg', '토지신')">
+        <div class="frame-box">
+          <img src="class_sub/god.png" alt="캐릭터">
+        </div>
+        <div class="hero-name">토지신</div>
+      </article>
+      
+      <article class="hero-card" data-expansion="exp4" onclick="openModal('class/zom.jpg', '좀비')">
+        <div class="frame-box">
+          <img src="class_sub/zom.png" alt="캐릭터">
+        </div>
+        <div class="hero-name">좀비</div>
+      </article>
+      
+      <article class="hero-card" data-expansion="exp4" onclick="openModal('class/city.jpg', '시티가드')">
+        <div class="frame-box">
+          <img src="class_sub/city.png" alt="캐릭터">
+        </div>
+        <div class="hero-name">시티가드</div>
+      </article>
+      
+      <article class="hero-card" data-expansion="exp4" onclick="openModal('class/oni.jpg', '오니')">
+        <div class="frame-box">
+          <img src="class_sub/oni.png" alt="캐릭터">
+        </div>
+        <div class="hero-name">오니</div>
+      </article>
+      
+      <article class="hero-card" data-expansion="exp4" onclick="openModal('class/plan.jpg', '드라이어드')">
+        <div class="frame-box">
+          <img src="class_sub/plan.png" alt="캐릭터">
+        </div>
+        <div class="hero-name">드라이어드</div>
+      </article>
+      
+      <article class="hero-card" data-expansion="exp4" onclick="openModal('class/sha.jpg', '머포크')">
+        <div class="frame-box">
+          <img src="class_sub/sha.png" alt="캐릭터">
+        </div>
+        <div class="hero-name">머포크</div>
+      </article>
+      
+      <article class="hero-card" data-expansion="exp4" onclick="openModal('class/um.jpg', '음양사')">
+        <div class="frame-box">
+          <img src="class_sub/um.png" alt="캐릭터">
+        </div>
+        <div class="hero-name">음양사</div>
+      </article>
+      
+      <article class="hero-card" data-expansion="exp5" onclick="openModal('class/dead1.jpg', '네크로 캐스터')">
+        <div class="frame-box">
+          <img src="class_sub/dead1.png" alt="캐릭터">
+        </div>
+        <div class="hero-name">네크로 캐스터</div>
+      </article>
+      
+      <article class="hero-card" data-expansion="exp5" onclick="openModal('class/dead2.jpg', '스켈레톤 어세신')">
+        <div class="frame-box">
+          <img src="class_sub/dead2.png" alt="캐릭터">
+        </div>
+        <div class="hero-name">스켈레톤 어세신</div>
+      </article>
+      
+      <article class="hero-card" data-expansion="exp5" onclick="openModal('class/dead3.jpg', '헤드리스 나이트')">
+        <div class="frame-box">
+          <img src="class_sub/dead3.png" alt="캐릭터">
+        </div>
+        <div class="hero-name">헤드리스 나이트</div>
+      </article>
+      
+      <article class="hero-card" data-expansion="exp6" onclick="openModal('class/tem1.jpg', '테이머')">
+        <div class="frame-box">
+          <img src="class_sub/tem1.png" alt="캐릭터">
+        </div>
+        <div class="hero-name">테이머</div>
+      </article>
+      
+      <article class="hero-card" data-expansion="exp6" onclick="openModal('class/tem2.jpg', '아울')">
+        <div class="frame-box">
+          <img src="class_sub/tem2.png" alt="캐릭터">
+        </div>
+        <div class="hero-name">아울</div>
+      </article>
+      
+      <article class="hero-card" data-expansion="exp6" onclick="openModal('class/tem3.jpg', '몸을 뻗어 능히 세상 끝에 닿을 수 있는 자')">
+        <div class="frame-box">
+          <img src="class_sub/tem3.png" alt="캐릭터">
+        </div>
+        <div class="hero-name">안톤</div>
+      </article>
+      
+      <article class="hero-card" data-expansion="exp6" onclick="openModal('class/tem4.jpg', '하운드')">
+        <div class="frame-box">
+          <img src="class_sub/tem4.png" alt="캐릭터">
+        </div>
+        <div class="hero-name">하운드</div>
+      </article>
+      
+      <article class="hero-card" data-expansion="exp6" onclick="openModal('class/tem5.jpg', '래빗')">
+        <div class="frame-box">
+          <img src="class_sub/tem5.png" alt="캐릭터">
+        </div>
+        <div class="hero-name">래빗</div>
+      </article>
+      
+      <article class="hero-card" data-expansion="exp7" onclick="openModal('class/kight1.jpg', '나이트 스타')">
+        <div class="frame-box">
+          <img src="class_sub/kight1.png" alt="캐릭터">
+        </div>
+        <div class="hero-name">나이트 스타</div>
+      </article>
+      
+      <article class="hero-card" data-expansion="exp7" onclick="openModal('class/kight2.jpg', '나이트 우드')">
+        <div class="frame-box">
+          <img src="class_sub/kight2.png" alt="캐릭터">
+        </div>
+        <div class="hero-name">나이트 우드</div>
+      </article>
+      
+      <article class="hero-card" data-expansion="exp7" onclick="openModal('class/kight3.jpg', '나이트 소드')">
+        <div class="frame-box">
+          <img src="class_sub/kight3.png" alt="캐릭터">
+        </div>
+        <div class="hero-name">나이트 소드</div>
+      </article>
+      
+      <article class="hero-card" data-expansion="exp7" onclick="openModal('class/kight4.jpg', '나이크 크로스')">
+        <div class="frame-box">
+          <img src="class_sub/kight4.png" alt="캐릭터">
+        </div>
+        <div class="hero-name">나이크 크로스</div>
+      </article>
+      
+      <article class="hero-card" data-expansion="exp7" onclick="openModal('class/kight5.jpg', '나이트 블랙')">
+        <div class="frame-box">
+          <img src="class_sub/kight5.png" alt="캐릭터">
+        </div>
+        <div class="hero-name">나이트 블랙</div>
+      </article>
+      
+      
+      
+
+      
+      <article class="hero-card" data-expansion="exp8" onclick="openModal('class/dark.jpg', '더스크블레이드')">
+        <div class="frame-box">
+          <img src="class_sub/dark.png" alt="캐릭터">
+        </div>
+        <div class="hero-name">더스크블레이드</div>
+      </article>
+      
+      <article class="hero-card" data-expansion="exp9" onclick="openModal('class/gm.jpg', '그랜드마스터 - 확장1')">
+        <div class="frame-box">
+          <img src="class_sub/gm.png" alt="캐릭터">
+        </div>
+        <div class="hero-name">그랜드마스터</div>
+      </article>
+      
+    </section>
+  </main>
+
+  <!-- 화면 가득 차는 16:9 정보 팝업 (모달) -->
+  <div id="heroModal" class="modal-overlay" onclick="closeModal()">
+    <div class="modal-card" onclick="event.stopPropagation()">
+      <div class="modal-header">
+        <span id="modalTitle" class="modal-title">영웅 정보</span>
+        <button class="close-btn" onclick="closeModal()" aria-label="닫기">&times;</button>
+      </div>
+      <div class="aspect-16-9">
+        <img id="modalImg" src="" alt="영웅 상세 정보">
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function openModal(imgSrc, name) {
+      const modal = document.getElementById('heroModal');
+      const modalImg = document.getElementById('modalImg');
+      const modalTitle = document.getElementById('modalTitle');
+      
+      modalImg.src = imgSrc;
+      modalTitle.innerText = name;
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden'; // 배경 스크롤 방지
+    }
+
+    function closeModal() {
+      const modal = document.getElementById('heroModal');
+      modal.classList.remove('active');
+      document.body.style.overflow = 'auto';
+    }
+
+    // 필터링 기능
+    const tabs = document.querySelectorAll('.tab-btn');
+    const cards = document.querySelectorAll('.hero-card');
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        tabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+
+        const filter = tab.getAttribute('data-filter');
+
+        cards.forEach(card => {
+          if (filter === 'all' || card.getAttribute('data-expansion') === filter) {
+            card.style.display = 'flex';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>
